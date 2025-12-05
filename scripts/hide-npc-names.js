@@ -174,7 +174,7 @@ export class HideNPCNames {
                         event.stopPropagation();
                         await this.toggleActorHidden(actor);
                     });
-                    el.querySelector(".entry-name").appendChild(icon);
+                    el.appendChild(icon);
                 }
             }
         }
