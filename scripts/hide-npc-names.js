@@ -365,6 +365,7 @@ export class HideNPCNames {
      * @returns {Boolean} shouldReplace
      */
     static shouldReplaceName(actor) {
+        if (!actor) return false;
         if (actor.hasPlayerOwner) return false;
 
         let baseActor = Utils.getBaseActor(actor);
