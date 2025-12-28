@@ -366,9 +366,11 @@ export class HideNPCNames {
      */
     static shouldReplaceName(actor) {
         if (!actor) return false;
-        if (actor.hasPlayerOwner) return false;
+        if (actor?.hasPlayerOwner) return false;
 
         let baseActor = Utils.getBaseActor(actor);
+        if (!baseActor) return false;
+                        
         const dispositionEnum = baseActor.prototypeToken.disposition;
         const disposition = Utils.getKeyByValue(CONST.TOKEN_DISPOSITIONS, dispositionEnum);
         const hideSetting = Utils.getSetting(SETTING_KEYS[`hide${disposition.titleCase()}`]);
